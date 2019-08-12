@@ -1,0 +1,58 @@
+.song-hot{
+    margin: auto;
+    width: 100%;
+    z-index: 999;
+    background: white;
+    .song-hot-bg{
+        
+        width: 100%;
+        height: 150 * @dw;
+        background: url(../../image/hot_music_bg_2x.jpg) no-repeat;
+        // background-size: contain;
+        background-size: 790 * @dw 292 * @dw;
+        background-position-x: -203 * @dw;
+
+        
+        .song-hot-title{    
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 174 * @dw;
+            height: 140 * @dw;
+            margin-left: 10 * @dw; 
+    
+            .song-hot-title-icon{
+                
+                display: block;
+                width: 170 * @dw;
+                height: 68 * @dw;
+                background: url(../../image/index_icon_2x.png) no-repeat;
+                background-size: 188 * @dw 100 * @dw;
+                background-position: -25 * @dw -30 * @dw;
+                
+            }
+            p{
+                margin-top: 10 * @dw;
+                font-size: 12 * @dw;
+                color: white;
+            }
+        }
+    }  
+
+    .song-list-content{
+        
+        li{
+            .num{
+                width: 40 * @dw;
+                height: 55 * @dw;
+                line-height: 55 * @dw;
+                text-align: center;
+            }
+            .song-name-change{
+                width: 293 * @dw;
+            }
+        }
+
+    }
+}
+

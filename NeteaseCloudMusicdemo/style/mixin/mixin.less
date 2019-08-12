@@ -1,0 +1,28 @@
+.adapta(@index) when (@index > 0){
+    @media screen and(max-width: extract(@adaptaWidth,@index)){
+        html{
+            font-size: @baseFont / @baseDevice * extract(@adaptaWidth,@index)
+        }
+    }
+    .adapta(@index - 1)
+};
+.floatPo(@position){
+    float: @position;
+}
+
+// 导航切换
+.tab1,.tab2,.tab3{
+    display: none;
+}
+.bannerMove(@index) when (@index <= 3){
+    // banner@{index}
+    #tab@{index}:checked~.tab@{index}{
+        
+        display: block;
+    }
+    #tab@{index}:checked~.download .navbar ul li:nth-child(@{index}) p{
+        
+        border-bottom: 1px solid #dd001b;
+    }
+    .bannerMove(@index + 1)
+};

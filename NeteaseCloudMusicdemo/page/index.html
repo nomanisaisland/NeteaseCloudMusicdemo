@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网易云</title>
+    <link rel="stylesheet" href="../style/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/less" href="../style/common/style.less">
+    <script src="../script/less.min.js"></script>
+
+</head>
+
+<body>
+    <!-- 公用的头部 -->
+    <input type="radio" name="tab" id="tab1" style="display: none" checked>
+    <input type="radio" name="tab" id="tab2" style="display: none">
+    <input type="radio" name="tab" id="tab3" style="display: none">
+    <header class="download">
+        <!-- 头部下载栏 -->
+        <div class="download-box">
+            <div>
+                <i><img src="../image/favicon.ico" alt=""></i>
+                <p>网易云音乐</p>
+            </div>
+            <div>
+                <p>下载APP</p>
+            </div>
+        </div>
+        <!-- 导航栏 -->
+
+        <nav class="navbar">
+            <ul>
+                <li>
+                    <p>
+                        <label for="tab1">推荐音乐</label>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <label for="tab2">热歌榜</label>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <label for="tab3">搜索</label>
+                    </p>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <i class="box-big"></i>
+
+    <!-- 推荐歌单 -->
+    <div class="recommend tab1">
+        <!-- 推荐栏 -->
+        <div>
+            <p class="recommend-titile">推荐歌单</p>
+            <ul class="recommend-titile-header">
+            </ul>
+        </div>
+
+        <!-- 歌曲栏 -->
+        <div class="song-list">
+            <div class="song-list-title">
+                <p class="song-list-new">最新音乐</p>
+            </div>
+            <ul class="song-list-content">
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- 热歌榜 -->
+    <div class="song-hot tab2">
+        <div class="song-hot-bg fx">
+            <div class="song-hot-title">
+                <i class="song-hot-title-icon"></i>
+                <!-- 更新日期 -->
+                <p>更新日期：07月25日</p>
+            </div>
+        </div>
+        <ul class="song-list-content" id="hot-song-list">
+        </ul>
+    </div>
+    </div>
+
+    <!-- 搜索 -->
+    <div class="search tab3">
+        <div class="search-box">
+            <div>
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="搜索歌曲、歌手、专辑">
+            </div>
+        </div>
+
+        <!-- 热门搜索 -->
+        <div class="search-hot">
+            <p>热门搜索</p>
+            <ul id="tab_history">
+
+            </ul>
+            <div class="search-history">
+                <ul class="history-list" id="tab_history_list">
+                    <li class="fx remve_node"><i><span class="fa fa-clock-o"></span></i>
+                        <p>很想你</p>
+                        <i class="remove">
+                            <span class="fa fa-close">
+
+                            </span>
+                        </i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 搜索记录 -->
+    </div>
+</body>
+<script src="../script/common.js"></script>
+<script src="../script/index.js"></script>
+<script src="../script/ajax.js"></script>
+<script src="../script/index copy.js"></script>
+
+</html>

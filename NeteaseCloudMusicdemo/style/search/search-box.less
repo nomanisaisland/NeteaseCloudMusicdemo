@@ -1,0 +1,97 @@
+.search {
+    background: #fbfcfd;
+    color: #333;
+
+    .search-box {
+        width: 100%;
+        height: 60 * @dw;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+        line-height: 60 * @dw;
+
+        div {
+            position: relative;
+            margin: auto;
+            width: 100%;
+            height: 30 * @dw;
+
+
+            i {
+                position: absolute;
+                top: 23 * @dw;
+                left: 20 * @dw;
+            }
+
+            input[type=text] {
+                width: 94%;
+                height: 30 * @dw;
+                border-radius: 40 * @dw;
+                border: 1px solid #ccc;
+                padding: 0 40 * @dw 0 40 * @dw;
+                // background: transparent;
+                background: #ebecec;
+            }
+        }
+
+
+
+    }
+
+    .search-hot {
+        margin: auto;
+        // width: 355 * @dw;
+        height: 160 * @dw;
+        margin-top: 10px;
+
+        ul:nth-child(2) {
+            margin-top: 3 * @dw;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            li {
+
+                border: 1px solid #ccc;
+                border-radius: 15 * @dw;
+                margin: 8 * @dw 5 * @dw;
+
+                p {
+                    display: block;
+                    margin: 5 * @dw;
+                }
+            }
+        }
+
+        .search-history {
+            width: 100%;
+
+            .history-list {
+                width: 100%;
+
+                li{
+                    height: 45 * @dw;
+                    border-bottom: 1px solid rgba(0, 0, 0, .1);
+                    line-height: 45 * @dw;
+
+                    i:nth-child(1){
+                        display: inline-block;
+                        width: 15 * @dw;
+
+                        span{
+                            text-align: center;
+                            vertical-align: middle;
+                        }
+                    }
+
+                    p{
+                        display: inline-block;
+
+                    }
+                    i:nth-child(3){
+                        .floatPo(right);
+                    }
+                }
+            }
+        }
+    }
+}

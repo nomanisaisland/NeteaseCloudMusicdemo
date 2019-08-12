@@ -1,0 +1,84 @@
+.recommend {
+    width: 100%;
+    // display: none;
+
+    div:nth-child(1) {
+        width: 100%;
+
+        .recommend-titile {
+            width: 100%;
+            height: 43 * @dw;
+            line-height: 43 * @dw;
+        }
+
+        .recommend-titile::before {
+            content: "";
+            display: inline-block;
+            width: 2px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 9 * @dw;
+            background: #d33a31;
+        }
+
+        ul {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+
+            li {
+                position: relative;
+                width: 122.88 * @dw;
+                height: 174.88 * @dw;
+
+                a {
+                    display: inline-block;
+                    width: 122.88 * @dw;
+                    height: 174.88 * @dw;
+                    color: #333;
+                    img {
+                        width: 122.88 * @dw;
+                        height: 122.88 * @dw;
+                    }
+
+                    p {
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        font-size: 13px;
+                    }
+
+                    .recommend-hot {
+                        width: 100%;
+                        position: absolute;
+                        top: 0;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-end;
+                        background-image: linear-gradient(180deg, rgba(0, 0, 0, .2), transparent);
+
+                        i {
+                            padding-top: 2 * @dw;
+                            color: white;
+                            // .floatPo(right);
+                        }
+
+                        p {
+                            margin-right: 5 * @dw;
+                            color: #fff;
+                            .floatPo(right);
+                            text-shadow: 1px 0 0 rgba(0, 0, 0, .15);
+
+                        }
+                    }
+                }
+
+            }
+
+        }
+    }
+}

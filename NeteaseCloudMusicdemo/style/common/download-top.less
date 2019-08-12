@@ -1,0 +1,41 @@
+.download{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 124 * @dw;
+    background: #d43c33;
+    z-index: 999;
+    // 下载栏
+    .download-box{
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        height: 84 * @dw;
+        color: white;
+
+        div:nth-child(1){
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        div:nth-child(2){
+            width: 100 * @dw;
+            height: 36 * @dw;
+            text-align: center;
+            line-height: 36 * @dw;
+            background: #fff;
+            color: #d43c33;
+            border-radius: 18 * @dw;
+        }
+    }
+}
+.box-big{
+    display: block;
+    width: 100%;
+    height: 124 * @dw;
+}
