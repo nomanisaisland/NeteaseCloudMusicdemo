@@ -109,15 +109,76 @@ render(serch_hot).then(data => {
         `
     })
     $("#tab_history").innerHTML = searchinput;
-    addLocalS();
+    addSearHis($A(".search_tap"));
 })
 
-function addLocalS(){
-    // console.log($A(".search_tap"))
-    for(let i = 1; i < $A(".search_tap").length; i++){
+// 搜索记录
+let data_arr = JSON.parse(window.localStorage.getItem("kserch_data_hisey"));
+if(data_arr == null){
+    data_arr = [];
+}
+function addSearHis(){
+    for(let i = 0;i < $A(".search_tap").length;i++){
         $A(".search_tap")[i].onclick = function(){
-            let search_value =  $A(".search_tap > p").nodeValue;
-            console.log(search_value)
+            let data_his = $A(".search_tap")[i].children[$A(".search_tap")[i].children.length - 1].innerHTML;
+            let data_arr_json = {first: data_his,second: 1};
+            data_arr.push(data_arr_json);
+            // console.log(data_arr)            
+            localStorage.setItem('kserch_data_hisey',JSON.stringify(data_arr))
+            makeArr();
+            removeSearHis();
+        }
+        
+    }
+    
+}
+
+// 将记录整理成数组
+// 数组清空
+// 渲染本地存储的数组格式数据
+makeArr();
+function makeArr(){
+    if(data_arr !== null){
+        // console.log(data_arr);
+        data_arr = JSON.parse(window.localStorage.getItem("kserch_data_hisey"));
+        let data_arr_input = "";
+        data_arr.forEach(function(value,index,arr) {
+            data_arr_input += 
+            `
+            <li class="fx remve_node"><i><span class="fa fa-clock-o"></span></i>
+                <p>${value.first}</p>
+                <i class="remove">
+                    <span class="fa fa-close">
+    
+                    </span>
+                </i>
+            </li>
+            `
+        })
+        $("#tab_history_list").innerHTML = data_arr_input; 
+    }
+    
+}
+
+// 删除按钮
+removeSearHis()
+function removeSearHis(){
+    let data_arr = JSON.parse(window.localStorage.getItem("kserch_data_hisey"));
+    for(let i = 0;i < $A(".remove").length;i++){
+        $A(".remove")[i].onclick = function(){     
+            // localStorage.removeItem(key[i]);
+            // window.localStorage.clear();
+            data_arr.splice(i,1);
+            localStorage.setItem('kserch_data_hisey',JSON.stringify(data_arr));
+            makeArr();
+            removeSearHis();
         }
     }
 }
+
+
+
+
+
+
+
