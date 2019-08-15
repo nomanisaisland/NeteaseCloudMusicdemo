@@ -9,6 +9,24 @@
         z-index: 999;
         overflow: hidden;
 
+        .ofplheader-wrap-bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: 50%;
+            filter: blur(20px);
+        }
+        .ofplheader-wrap-bg::after {
+            content: " ";
+            background-color: rgba(0,0,0,.25);
+            z-index: 1;
+        }
+
         div {
             position: relative;
             display: flex;
@@ -21,10 +39,14 @@
                 width: 159 * @dw;
                 height: 126 * @dw;
                 z-index: 999;
-                background: url(../../image/recommend2.webp) no-repeat;
-                background-size: 100%;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
 
                 .ofplheader-wrap-title {
+                    position: absolute;
                     display: inline-block;
                     margin-top: 10 * @dw;
                     padding: 0 8px;
@@ -35,11 +57,11 @@
                     border-bottom-right-radius: 17 * @dw;
                 }
 
-                p:nth-child(2) {
+                p:nth-child(3) {
 
-                    width: 100%;
                     position: absolute;
                     top: 0;
+                    right: 0;
                     display: flex;
                     flex-direction: row;
                     justify-content: flex-end;
@@ -98,23 +120,7 @@
         }
     }
 
-    .ofplheader-wrap::after {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        -webkit-filter: blur(20px);
-        -moz-filter: blur(20px);
-        -ms-filter: blur(20px);
-        -o-filter: blur(20px);
-        filter: blur(20px);
-        background-image: url(../../image/recommend2.webp);
-        background-position: 50%;
-    }
+    
 
     .ofplheader-wrap::before {
         content: "";
@@ -124,7 +130,7 @@
         top: 0;
         left: 0;
         display: block;
-        background: rgba(0, 0, 0, .3);
+        background: rgba(0, 0, 0, .25);
         background-position: top;
         background-attachment: fixed;
         z-index: 1;
@@ -135,8 +141,16 @@
         width: 95%;
 
         div:nth-child(1){
+            display: flex;
+            flex-direction: row;
 
             p{
+                display: inline-block;
+                vertical-align: middle;
+            }
+            div{
+                display: inline-block;
+
 
                 span{
                     padding: 1px 8px 1px 8px;
@@ -145,17 +159,23 @@
                     border-radius: 9999px;
                 }
             }
+
         }
         div:nth-child(2){
-            margin-top: 10 * @dw;
             
-            p{
+            
+            section{
+                padding-top: 10 * @dw;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 -webkit-line-clamp: 3;
                 white-space: normal;
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
+
+                p{
+                    display: inline-block;
+                }
             }
         }
     }

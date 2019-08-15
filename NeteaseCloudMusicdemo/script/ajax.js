@@ -7,7 +7,7 @@ render(personalized).then(data => {
         input +=
             `
         <li>
-            <a href="page2.html?id"+${value.id}>
+            <a href="page3.html?id=${value.id}&?pic=${value.picUrl}">
                 <img src="${value.picUrl}">
             <p>${value.name}</p>
             <div class="recommend-hot">
@@ -175,6 +175,8 @@ function removeSearHis(){
         }
     }
 }
+
+
 
 
 
