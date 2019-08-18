@@ -26,29 +26,32 @@ let newsongurl = "http://localhost:3000/personalized/newsong";
 render(newsongurl).then(data => {
     let newsonginput = "";
     data.result.forEach(function (value, index, arr) {
+        console.log(value);
         newsonginput +=
         `
-        <li>
-            <div class="song-list-content-left">
+        <a href="song-play.html?id=${value.id}?pic=${value.song.album.blurPicUrl}">
+            <li>
+                <div class="song-list-content-left">
 
-            </div>
-            <!-- 左边歌名部分 -->
-            <div class="song-list-left hot-song-change">
-                <p>${value.name}<span>${value.song.alias}</span></p>
-                <p>
-                    <!-- 下面图标 -->
-                    <i></i>
-                    <span>${value.song.artists[0].name}-${value.song.album.name}</span>
-                    <!-- 歌手 -->
+                </div>
+                <!-- 左边歌名部分 -->
+                <div class="song-list-left hot-song-change">
+                    <p>${value.name}<span>${value.song.alias}</span></p>
+                    <p>
+                        <!-- 下面图标 -->
+                        <i></i>
+                        <span>${value.song.artists[0].name}-${value.song.album.name}</span>
+                        <!-- 歌手 -->
 
-                </p>
-            </div>
-            <!-- 右边播放部分 -->
-            <div class="radio-box">
-                <i class="radio-btn"></i>
-            </div>
+                    </p>
+                </div>
+                <!-- 右边播放部分 -->
+                <div class="radio-box">
+                    <i class="radio-btn"></i>
+                </div>
 
-        </li>
+            </li>
+        </a>
         `
     })
     $(".song-list-content").innerHTML = newsonginput;
@@ -62,32 +65,35 @@ render(hotsongurl).then(data => {
     // console.log(data);
     let hotsonginput = "";
     data.playlist.tracks.splice(0,20).forEach(function (value, index, arr) {
-        // console.log(arr);
+        
         if(arr[index].alia.length ==1){
-            arr[index].alia = "&nbsp-" + arr[index].alia
+            arr[index].alia = "&nbsp-" + arr[index].alia;
         }
+        // console.log(value);
         hotsonginput +=
         `
-        <li>
-            <div class="song-list-content-left first num">
-                ${index+1}
-            </div>
-            <!-- 左边歌名部分 -->
-            <div class="song-list-left hot-song-change song-name-change">
-                <p>${arr[index].name}<span>${arr[index].alia}</span></p>
-                <p>
-                    <!-- 下面图标 -->
-                    <i></i>
-                    <span>${arr[index].ar[0].name}${arr[index].alia}</span>
-                    <!-- 歌手 -->
+        <a href="song-play.html?id=${value.id}?pic=${value.al.picUrl}">
+            <li>
+                <div class="song-list-content-left first num">
+                    ${index+1}
+                </div>
+                <!-- 左边歌名部分 -->
+                <div class="song-list-left hot-song-change song-name-change">
+                    <p>${arr[index].name}<span>${arr[index].alia}</span></p>
+                    <p>
+                        <!-- 下面图标 -->
+                        <i></i>
+                        <span>${arr[index].ar[0].name}${arr[index].alia}</span>
+                        <!-- 歌手 -->
 
-                </p>
-            </div>
-            <!-- 右边播放部分 -->
-            <div class="radio-box">
-                <i class="radio-btn"></i>
-            </div>
-        </li>
+                    </p>
+                </div>
+                <!-- 右边播放部分 -->
+                <div class="radio-box">
+                    <i class="radio-btn"></i>
+                </div>
+            </li>
+        </a>
         `
     })
     $("#hot-song-list").innerHTML = hotsonginput;
