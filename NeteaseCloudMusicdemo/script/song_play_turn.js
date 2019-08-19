@@ -1,13 +1,13 @@
 let song_play_turn_url = "http://localhost:3000/song/url";
 let local_search_a = location.search;
-// console.log(local_search_a);
+
 let local_search_reg1 = /(?<=\?id=)\d+/;
 let local_search_reg1_url = local_search_a.match(local_search_reg1);
-// console.log(local_search_reg1_url)
+
 
 let local_search_reg2 = /(?<=\?pic=).*/;
 let local_search_reg1_pic = local_search_a.match(local_search_reg2);
-// console.log(local_search_reg1_pic)
+
 
 $("#play-mid-btn").style.background = "url("+local_search_reg1_pic+") no-repeat center";
 $("#song-list-bottom-img").style.background = "url("+local_search_reg1_pic+") no-repeat center";
@@ -17,14 +17,14 @@ $("#play-mid-btn").style.backgroundSize = "100%";
 // }
 
 render(song_play_turn_url + "?id=" +local_search_reg1_url).then(data=>{
-    // console.log(data);
+
     $("#song-play").src = data.data[0].url;
-    console.log(data.data[0].url)
+
 })
 
 let song_lyric_url = "http://localhost:3000/lyric";
 render(song_lyric_url + "?id=" + local_search_reg1_url).then(data=>{
-    console.log(data);
+
     let song_lyric_data_reg = /(?<=\]).*/g;
     let song_lyric_data_arr = data.lrc.lyric.match(song_lyric_data_reg);
     let lyric_arr_input = "";
@@ -35,11 +35,34 @@ render(song_lyric_url + "?id=" + local_search_reg1_url).then(data=>{
         `
     })
     $("#song_lyric_content").innerHTML = lyric_arr_input;
+    let song_lyric_time_reg = /(?<=\[).*(?=\])/g
+    let song_lyric_timer_arr = data.lrc.lyric.match(song_lyric_time_reg);
+    // console.log(song_lyric_timer_arr)
+    // console.log(parseFloat(song_lyric_timer_arr[1])*10000)
+    let sum = 0;
+    let arr1= [];
+    song_lyric_timer_arr.forEach(function(value,index,arr){
+       
+        let current_time_left_reg = /\d*(?=\:)/;
+        let current_time_mid_reg = /(?<=\:)\d*/;
+        let current_time_right_reg = /(?<=\.)\d*/;
+        let m = parseInt(value.match(current_time_left_reg));
+        let s = parseInt(value.match(current_time_mid_reg));
+        let ms = parseInt(value.match(current_time_right_reg));
+        sum = m * 60 + s + ms / 1000;
+        // console.log(s)
+          //song-play.js  line:31
+
+        arr1.push(sum);
+    }) 
+    // console.log(arr1)
+
+    gettimer(arr1); 
 })    
 
 let song_lyric_detail = "http://localhost:3000/song/detail";
 render(song_lyric_detail + "?ids=" + local_search_reg1_url).then(data=>{
-    // console.log(data);
+
     let lyric_title_input = "";
    data.songs.forEach(function(value,index,arr){
         lyric_title_input = 
@@ -54,7 +77,7 @@ render(song_lyric_detail + "?ids=" + local_search_reg1_url).then(data=>{
 // 
 let simi_playlist_url = "http://localhost:3000/simi/playlist";
 render(simi_playlist_url + "?id=" + local_search_reg1_url).then(data=>{
-    // console.log(data);
+    render()
     let song_play_include_input = "";
     data.playlists.forEach(function(value,index,arr){
         song_play_include_input += 
@@ -79,14 +102,14 @@ render(simi_playlist_url + "?id=" + local_search_reg1_url).then(data=>{
 
 let simi_playsong_url = "http://localhost:3000/simi/song";
 render(simi_playsong_url + "?id=" + local_search_reg1_url).then(data=>{
-    // console.log(data);
+
     let simi_playsong_input = "";
     data.songs.forEach(function(value,index,arr){
         simi_playsong_input +=
         `
         <li>
             <div class="song-list-content-left">
-                <img src="../image/songplay/song-play-list1.webp" alt="">
+                <img src="${value.album.picUrl}" alt="">
             </div>
             <!-- 左边歌名部分 -->
             <div class="song-list-left hot-song-change">

@@ -3,8 +3,9 @@ let personalized = "http://localhost:3000/personalized";
 
 render(personalized).then(data => {
     let input = "";
-    data.result.splice(0, 6).forEach(function (value, index, arr) {
-        input +=
+    data.result.splice(0, 6).forEach(value =>{
+        playCount(value);  //index.js   line1
+        input +=    
             `
         <li>
             <a href="page3.html?id=${value.id}&?pic=${value.picUrl}">
@@ -13,20 +14,21 @@ render(personalized).then(data => {
             <div class="recommend-hot">
                 <!-- 图标可以尝试用伪类 -->
                 <i class="fa fa-headphones "></i>
-                <p>${value.playCount}</p>
+                <p class="play-count">${value.playCount}</p>
             </div>
             </a>
         </li>
         `
     })
     $(".recommend-titile-header").innerHTML = input;
+    
 })
 
 let newsongurl = "http://localhost:3000/personalized/newsong";
 render(newsongurl).then(data => {
     let newsonginput = "";
-    data.result.forEach(function (value, index, arr) {
-        console.log(value);
+    data.result.forEach(value =>{
+
         newsonginput +=
         `
         <a href="song-play.html?id=${value.id}?pic=${value.song.album.blurPicUrl}">
@@ -62,28 +64,30 @@ render(newsongurl).then(data => {
 
 let hotsongurl = "http://localhost:3000/top/list?idx=1";
 render(hotsongurl).then(data => { 
-    // console.log(data);
+ 
     let hotsonginput = "";
-    data.playlist.tracks.splice(0,20).forEach(function (value, index, arr) {
+    data.playlist.tracks.splice(0,20).forEach((value, index)=> {
         
-        if(arr[index].alia.length ==1){
-            arr[index].alia = "&nbsp-" + arr[index].alia;
+
+        if(value.alia.length ==1){
+            value.alia = "&nbsp-" + value.alia;
         }
-        // console.log(value);
+        let num = index + 1;
+        num = num < 10? "0" + num : num;
         hotsonginput +=
         `
         <a href="song-play.html?id=${value.id}?pic=${value.al.picUrl}">
             <li>
                 <div class="song-list-content-left first num">
-                    ${index+1}
+                    ${num}
                 </div>
                 <!-- 左边歌名部分 -->
                 <div class="song-list-left hot-song-change song-name-change">
-                    <p>${arr[index].name}<span>${arr[index].alia}</span></p>
+                    <p>${value.name}<span>${value.alia}</span></p>
                     <p>
                         <!-- 下面图标 -->
                         <i></i>
-                        <span>${arr[index].ar[0].name}${arr[index].alia}</span>
+                        <span>${value.ar[0].name}${value.alia}</span>
                         <!-- 歌手 -->
 
                     </p>
@@ -91,12 +95,14 @@ render(hotsongurl).then(data => {
                 <!-- 右边播放部分 -->
                 <div class="radio-box">
                     <i class="radio-btn"></i>
-                </div>
+                </div>  
             </li>
         </a>
         `
     })
     $("#hot-song-list").innerHTML = hotsonginput;
+    addColor(); 
+    
 })
 
 
@@ -104,13 +110,13 @@ render(hotsongurl).then(data => {
 let serch_hot = "http://localhost:3000/search/hot";
 
 render(serch_hot).then(data => {
-    // console.log(data.result.hots);
+
     let searchinput = "";
-    data.result.hots.forEach(function (value, index, arr) {
+    data.result.hots.forEach(value =>{
         searchinput +=
         `
         <li class="search_tap">
-            <p>${arr[index].first}</p>
+            <p>${value.first}</p>
         </li>
         `
     })
@@ -148,7 +154,7 @@ function makeArr(){
         // console.log(data_arr);
         data_arr = JSON.parse(window.localStorage.getItem("kserch_data_hisey"));
         let data_arr_input = "";
-        data_arr.forEach(function(value,index,arr) {
+        data_arr.forEach(value=> {
             data_arr_input += 
             `
             <li class="fx remve_node"><i><span class="fa fa-clock-o"></span></i>

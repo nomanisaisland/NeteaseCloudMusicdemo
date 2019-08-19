@@ -14,51 +14,54 @@
     <div class="song-play-bg"></div>
     <div class="song-mian">
         <div id="song-play-top" class="song-play-top">
-            <p class="play-top-title">
-                <i></i>
-                <span>网易云音乐</span>
-            </p>
-            <div class="song-play-compact">
-                <div class="song-play-compact-out">
-                    <div class="song-play-compact-mid" id="play-mid-btn">
-                        <div>
-
+            <div id="play-top-box">
+                    <p class="play-top-title">
+                            <i></i>
+                            <span>网易云音乐</span>
+                        </p>
+                        <div class="song-play-compact">
+                            <div class="song-play-compact-out">
+                                <div class="song-play-compact-mid" id="play-mid-btn">
+                                    <div>
+            
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="song-play-compact-btn">
+                                <audio src="" id="song-play" style="z-index: 999"></audio>
+                                <img src="../image/songplay/play-btn.png" alt="">
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="song-play-compact-btn">
-                    <audio src="../music/Anthony Keyrouz,Romy Wave - Something Just Like This.mp3"
-                        style="display: none;" id="song-play"></audio>
-                    <img src="../image/songplay/play-btn.png" alt="">
-                </div>
-            </div>
-            <div class="song-player-lyric">
-                <h2 class="song-player-lyric-title">
-                    
-                </h2>
-                <div class="song-lyric-content" id="song_lyric_content">
-                </div>
-
-            </div>
-            <div class="song-player-ctpelyric">
-                <p>查看完整歌词 &gt</p>
-                <div>
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAADACAYAAABhy7FLAAAHtElEQ…VCnNfEeQ1xXtMGcV5ThEic10Cc18R5zf/5vOZzOGdn+Awy41HF8ePswwAAAABJRU5ErkJggg=="
-                        alt="">
-                </div>
+                        <div class="song-player-lyric">
+                            <div class="song-player-lyric-box">
+                                <h2 class="song-player-lyric-title">
+            
+                                </h2>
+                                <div class="song-lyric-content" id="song_lyric_content">
+                                </div>
+                            </div>
+            
+                        </div>
+                        <div class="song-player-ctpelyric">
+                            <p>查看完整歌词 &gt</p>
+                            <div>
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAADACAYAAABhy7FLAAAHtElEQ…VCnNfEeQ1xXtMGcV5ThEic10Cc18R5zf/5vOZzOGdn+Awy41HF8ePswwAAAABJRU5ErkJggg=="
+                                    alt="">
+                            </div>
+                        </div>
             </div>
             <!-- 喜欢的人也喜欢听 -->
             <div class="song-play-like">
                 <h4>包含这首歌的歌单</h4>
                 <div class="song-play-include">
-                    <ul class="song-play-include-content"> 
+                    <ul class="song-play-include-content">
                     </ul>
                 </div>
 
                 <h4>喜欢这首歌的人也听</h4>
                 <div class="song-like-list">
                     <ul class="song-list-content song-play-like-list">
-                        
+
                     </ul>
                 </div>
             </div>
@@ -74,5 +77,6 @@
 <script src="../script/common.js"></script>
 <script src="../script/song-play.js"></script>
 <script src="../script/song_play_turn.js"></script>
+<script src="../script/lyric.js"></script>
 
 </html>

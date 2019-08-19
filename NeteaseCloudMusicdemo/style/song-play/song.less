@@ -1,10 +1,10 @@
-
-body{
+body {
     position: relative;
     width: 100%;
     color: white;
 
 }
+
 .song-play-bg {
     position: fixed;
     top: 0;
@@ -18,6 +18,7 @@ body{
     transform: scale(1.5);
     opacity: 0.9;
 }
+
 .song-play-bg::before {
     content: "";
     position: absolute;
@@ -27,6 +28,7 @@ body{
     bottom: 0;
     background: rgba(0, 0, 0, 0.7)
 }
+
 .song-play-bg::after {
     content: "";
     position: absolute;
@@ -36,108 +38,137 @@ body{
     bottom: 50px;
     background: rgba(0, 0, 0, 0.7)
 }
-.song-mian{
+
+.song-mian {
     width: 100%;
     height: 590 * @dw;
     overflow: scroll;
 }
-.song-play-top {  
+
+.song-play-top {
     position: relative;
 
-    .play-top-title {
+    #play-top-box {
+        width: 100%;
 
-        i {
-            display: inline-block;
-            width: 15 * @dw;
-            height: 15 * @dw;
-            background: url(../../image/favicon.ico);
-            background-size: 100%;
-            vertical-align: middle;
+        .play-top-title {
+
+            i {
+                display: inline-block;
+                width: 15 * @dw;
+                height: 15 * @dw;
+                background: url(../../image/favicon.ico);
+                background-size: 100%;
+                vertical-align: middle;
+            }
+
+            span {
+                color: white;
+                vertical-align: middle;
+            }
         }
 
-        span {
-            color: white;
-            vertical-align: middle;
-        }
-    }
-
-    .song-play-compact {
-        position: relative;
-        margin: 50 * @dw auto 20 * @dw;
-        width: 266 * @dw;
-        height: 266 * @dw;
-
-        .song-play-compact-out {
+        .song-play-compact {
             position: relative;
-            width: 100%;
-            height: 100%;
-            background: url(../../image/songplay/disc.png);
-            background-size: 100%;
-            background-repeat: no-repeat;
+            margin: 50 * @dw auto 20 * @dw;
+            width: 266 * @dw;
+            height: 266 * @dw;
 
-            .song-play-compact-mid {
+            .song-play-compact-out {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                background: url(../../image/songplay/disc.png);
+                background-size: 100%;
+                background-repeat: no-repeat;
 
+                .song-play-compact-mid {
+
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) rotateZ(40deg);
+                    width: 180 * @dw;
+                    height: 180 * @dw;
+                    border-radius: 50%;
+                }
+            }
+
+            .song-play-compact-btn {
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%) rotateZ(40deg);
-                width: 180 * @dw;
-                height: 180 * @dw;
-                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                width: 56 * @dw;
+                height: 56 * @dw;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
 
-        .song-play-compact-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 56 * @dw;
-            height: 56 * @dw;
-
-            img {
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
-
-    .song-player-lyric {
-        margin: auto;
-        width: 305 * @dw;
-        text-align: center;
-        color: white;
-
-        .song-player-lyric-title{
-            span:nth-child(1){
-                font-size: 18 * @dw;
-            }
-            span:nth-child(3){
-                font-size: 16 * @dw;
-                font-weight: bold;
-                color: hsla(0,0%,100%,.6);
-            }
-        }
-        .song-lyric-content {
-            width: 100%;
-            height: 56 * @dw;
+        .song-player-lyric {
+            position: relative;
+            margin: auto;
+            width: 305 * @dw;
+            height: 120 * @dw;
             overflow: hidden;
-            white-space: wrap;
-            word-wrap: wrap;
+            color: white;
+
+
+            .song-player-lyric-box {
+                margin-top: 50 * @dw;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 312 * @dw;
+                overflow: hidden;
+                text-align: center;
+                transition: all 1s;
+
+                .song-player-lyric-title {
+                    height: 50 * @dw;
+
+                    span:nth-child(1) {
+                        font-size: 17 * @dw;
+                    }
+
+                    span:nth-child(3) {
+                        font-size: 16 * @dw;
+                        font-weight: bold;
+                        color: hsla(0, 0%, 100%, .6);
+                    }
+                }
+
+                .song-lyric-content {
+                    width: 100%;
+                    white-space: wrap;
+                    word-wrap: wrap;
+
+                    p {
+                        width: 100%;
+                        height: 50 * @dw;
+                        white-space: wrap;
+                        font-size: 14 * @dw;
+                    }
+                }
+            }
+        }
+
+        .song-player-ctpelyric {
+            margin-top: 80 * @dw;
+            position: relative;
+            color: hsla(0, 0%, 100%, .6);
+            text-align: center;
 
             p {
-                width: 100%;
-                padding: 20 * @dw;
-                white-space: wrap;
-                font-size: 16 * @dw;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
             }
         }
-    }
-
-    .song-player-ctpelyric {
-        margin: 120 * @dw auto 0;
-        color: hsla(0, 0%, 100%, .6);
-        text-align: center;
     }
 
 }
@@ -173,39 +204,42 @@ body{
         height: 16px;
         background: #d33a31;
     }
-    .song-play-include{
+
+    .song-play-include {
         margin-bottom: 35 * @dw;
-        ul{
+
+        ul {
             margin-top: 12 * @dw;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
 
-            li{
+            li {
                 width: 33%;
 
-                div{
+                div {
 
-                    div{
+                    div {
                         position: relative;
 
-                        img{
-                           
-                        width: 100%;
-                            
+                        img {
+
+                            width: 100%;
+
                         }
 
-                        p{
+                        p {
 
                             position: absolute;
                             display: inline-block;
                             right: 0;
                             top: 0;
-                            text-align: right; 
+                            text-align: right;
                             // width: 31 * @dw;
                         }
                     }
-                    p{
+
+                    p {
 
                         width: 100%;
                         white-space: nowrap;
@@ -213,27 +247,28 @@ body{
                         text-overflow: ellipsis;
                     }
 
-                    p:nth-child(2){
+                    p:nth-child(2) {
                         font-size: 13 * @dw;
                     }
-                    p:nth-child(3){
+
+                    p:nth-child(3) {
                         font-size: 12 * @dw;
                     }
                 }
             }
         }
     }
-    
-    .song-play-like-list{
-        
-        li{
-           
-            .song-list-content-left{
+
+    .song-play-like-list {
+
+        li {
+
+            .song-list-content-left {
                 width: 35 * @dw;
                 height: 35 * @dw;
                 margin: 0 10px;
 
-                img{
+                img {
 
                     width: 100%;
                     height: 100%;
@@ -242,4 +277,3 @@ body{
         }
     }
 }
-
