@@ -8,54 +8,46 @@ let local_search_pic_reg = /(?<=\&?pic=).+/;
 let datail_data_bg = local_search.match(local_search_pic_reg).toString();
 // console.log(datail_data_bg)
 
-    
-$(".ofplheader-wrap-bg").style.background = "url("+datail_data_bg+") no-repeat center";
+
+$(".ofplheader-wrap-bg").style.background = "url(" + datail_data_bg + ") no-repeat center";
 $(".ofplheader-wrap-pic > img").src = datail_data_bg;
 
-fetch("http://localhost:3000/playlist/detail?id="+detail_data_url,{
-    method: "GET",
-    mode: "cors" 
-}).then(r=>{
-    if(r.status == 200){
-        return r.json();
-    }
-}).then(data=>{
-    // console.log(data);
+let detail_detail_data_url = "http://localhost:3000/playlist/detail?id=";
+render(detail_detail_data_url + detail_data_url).then(data => {
+
     $(".ofplheader-wrap-right-title").innerHTML = data.playlist.name;
     $(".ofplheader-wrap-right-user > span").innerHTML = data.playlist.creator.nickname;
-    $(".ofplheader-wrap-right-user > i > img").src = data.playlist.creator.avatarUrl.toString();     
-    $(".ofplheader-wrap-right-user > i > img").src = data.playlist.creator.avatarUrl.toString();     
+    $(".ofplheader-wrap-right-user > i > img").src = data.playlist.creator.avatarUrl.toString();
+    $(".ofplheader-wrap-right-user > i > img").src = data.playlist.creator.avatarUrl.toString();
     $(".ofplheader-lable-description").innerHTML = data.playlist.description;
 
-    $(".play-count").innerHTML = data.playlist.playCount;
+    $(".play-count").innerHTML = (data.playlist.playCount / 10000).toFixed(1) + "万";
     // 收藏数
 
     // 头部标签
+
     let mark_input = "";
-    data.playlist.tags.forEach(function(index, value, arr){
-        mark_input += 
-        `
+    data.playlist.tags.forEach(value => {
+
+        mark_input +=
+            `
         <span>${value}</span>
-        ` 
+        `
     })
-    // let mark_input = "";
-    //     mark_input += 
-    //     `
-    //     <span>${data.playlist.tags[0]}</span>
-    //     <span>${data.playlist.tags[1]}</span>
-    //     <span>${data.playlist.tags[2]}</span>
-    //     ` 
-          
     $(".ofplheader-lable-mark").innerHTML = mark_input;
 
+
+
+
     let song_list_input = "";
-    data.playlist.tracks.forEach(function(value,index,arr){
-        if(arr[index].al.name.length > 1){
+    data.playlist.tracks.forEach(function (value, index, arr) {
+
+        if (arr[index].al.name.length > 1) {
             arr[index].al.name = "-&nbsp" + arr[index].al.name;
         }
-        // console.log(value.al.id)
+
         song_list_input +=
-        `
+            `
         <a href="song-play.html?id=${value.id}?pic=${value.al.picUrl}">
             <li>
                 <div class="song-list-content-left first num">
@@ -84,23 +76,79 @@ fetch("http://localhost:3000/playlist/detail?id="+detail_data_url,{
     })
     $("#song-list-recom").innerHTML = song_list_input;
 })
-
-fetch("http://localhost:3000/comment/playlist?id="+detail_data_url,{
-    method: "GET",
-    mode: "cors"
-}).then(respond=>{
-    if(respond.status == 200){
-        return respond.json();
-    }
-}).then(data=>{
-    // console.log(data)
+let playlist_detail_data_url = "http://localhost:3000/comment/playlist?id=";
+render(playlist_detail_data_url + detail_data_url).then(data => {
 
     let hotComments_input = "";
-    data.hotComments.forEach(function(value, index, arr){
-        // console.log(value.user.avatarUrl);
+    data.hotComments.forEach(value => {
+        let vip_icon;
+        if(value.user.vipType == 11){
+            vip_icon = "vip_icon";
+        }
         hotComments_input +=
+            `
+            <div class="ofplfooter-content">
+            <!-- 左边头像 -->
+            <div class="ofplfooter-content-head">
+                <img src="${value.user.avatarUrl}" alt="头像">
+            </div>
+            <!-- 评论主体 -->
+            <div class="ofplfooter-content-body">
+                <ul class="ofplfooter-content-body-list">
+                    <li>
+                        <p>
+                            <span>${value.user.nickname}</span>
+                            <i class="${vip_icon}"></i>
+                        </p>
+                        <p>
+                            <span>
+                                ${value.likedCount}
+                            </span>
+                            <i class="fa fa-thumbs-o-up"></i>
+                        </p>
+                    </li>
+                    <li>
+                        <span>2018年9月15日 </span>
+                    </li>
+                    <li>
+                        <p>
+                            
+                            <span>
+                                ${value.content}
+                            </span>
+                        </p>
+                        
+                    </li>
+                </ul>
+            </div>
+
+        </div>
         `
-        <div class="ofplfooter-content">
+        
+    })
+    $(".ofplfooter-hot-content").innerHTML += hotComments_input;
+
+
+    let newComments_input = "";
+    data.comments.forEach(value => {
+        let vip_icon;
+        let replied;
+        let replied_content;
+        if(value.user.vipType == 11){
+            vip_icon = "vip_icon";
+        }
+
+        if(value.beReplied.length > 0){
+            replied = `<span class="be-replied">回复<a href="#">@${value.beReplied[0].user.nickname}:</a></span>`;
+            replied_content = `<div><span> @${value.beReplied[0].user.nickname}:</span><span>${value.beReplied[0].content}</span> </div>`          
+        }else{
+            replied = ``;
+            replied_content = ``;
+        }
+
+        hotComments_input +=
+            `
+            <div class="ofplfooter-content">
             <!-- 左边头像 -->
             <div class="ofplfooter-content-head">
                 <img src="${value.user.avatarUrl}" alt="头像">
@@ -121,25 +169,26 @@ fetch("http://localhost:3000/comment/playlist?id="+detail_data_url,{
                         </p>
                     </li>
                     <li>
-                        <span>${value.decoration.time} </span>
+                        <span>2018年9月15日 </span>
                     </li>
                     <li>
                         <p>
-                            <span class="">
-                                
-                            </span>
-                            <a href="#"></a>
+                            
+                            ${replied}
                             <span>
                                 ${value.content}
                             </span>
                         </p>
-                        
+                        ${replied_content}
                     </li>
                 </ul>
             </div>
 
         </div>
         `
+        
     })
-    $("#ofplfooter").innerHTML += hotComments_input;
+    $(".ofplfooter-new-content").innerHTML += hotComments_input;
+
+    
 })

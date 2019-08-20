@@ -77,9 +77,9 @@ render(song_lyric_detail + "?ids=" + local_search_reg1_url).then(data=>{
 // 
 let simi_playlist_url = "http://localhost:3000/simi/playlist";
 render(simi_playlist_url + "?id=" + local_search_reg1_url).then(data=>{
-    render()
     let song_play_include_input = "";
     data.playlists.forEach(function(value,index,arr){
+        playCount(value);
         song_play_include_input += 
         `
         <li>
