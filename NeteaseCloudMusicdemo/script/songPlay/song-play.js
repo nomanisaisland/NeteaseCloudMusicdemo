@@ -11,16 +11,11 @@ function song_play(e) {
     e.stopPropagation();
     i++;
     if (i % 2 == 0) {
-        // clearInterval(compact_ratate_timer);
+
         $("#song-play").play();
-        // $(".song-play-compact-btn").style.opacity = 0;
-        // $("#play_btn").className = "fa fa-pause";
-        // compact_ratate_timer = setInterval(compact_ratate, 50)
+
     } else {
-        // clearInterval(compact_ratate_timer);
         $("#song-play").pause();
-        // $(".song-play-compact-btn").style.opacity = 1;
-        // $("#play_btn").className = "fa fa-play";
     }
     $("#song-play").onpause = function(){
         clearInterval(compact_ratate_timer);
@@ -50,7 +45,9 @@ function gettimer(target) {
     let current_time;
 
     
-
+    // if($("#song-play").currentTime == 0){
+    //     return;
+    // }
     $("#input").oninput = function(){
         $("#song-play").currentTime = this.value * $("#song-play").duration/100;
     }    

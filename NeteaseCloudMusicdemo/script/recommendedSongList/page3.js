@@ -1,13 +1,10 @@
 // 头部背景图渲染
-let local_search = location.search;
-// console.log(local_search);   
+let local_search = location.search; 
 let local_search_reg = /(?<=\?id=)\d+/;
 let detail_data_url = local_search.match(local_search_reg).toString();
-// console.log(detail_data_url);
+
 let local_search_pic_reg = /(?<=\&?pic=).+/;
 let datail_data_bg = local_search.match(local_search_pic_reg).toString();
-// console.log(datail_data_bg)
-
 
 $(".ofplheader-wrap-bg").style.background = "url(" + datail_data_bg + ") no-repeat center";
 $(".ofplheader-wrap-pic > img").src = datail_data_bg;
@@ -36,9 +33,6 @@ render(detail_detail_data_url + detail_data_url).then(data => {
     })
     $(".ofplheader-lable-mark").innerHTML = mark_input;
 
-
-
-
     let song_list_input = "";
     data.playlist.tracks.forEach((value, index)=> {
 
@@ -48,7 +42,7 @@ render(detail_detail_data_url + detail_data_url).then(data => {
 
         song_list_input +=
             `
-        <a href="song-play.html?id=${value.id}?pic=${value.al.picUrl}">
+        <a href="song-play.html?id=${value.id}?pic=${value.al.picUrl}?cls=10002?iddx=${detail_data_url}">
             <li>
                 <div class="song-list-content-left first num">
                     ${index+1}

@@ -1,5 +1,3 @@
-
-
 let song_play_turn_url = "http://localhost:3000/song/url";
 let local_search_a = location.search;
 let id_arr = [];
@@ -7,7 +5,6 @@ let num = 0;
 
 let local_search_reg1 = /(?<=\?id=)\d+/;
 // 当前歌曲id
-// let local_search_reg1_url = local_search_a.match(local_search_reg1);
 let local_search_reg1_url;
 
 
@@ -15,21 +12,34 @@ let local_search_reg2 = /(?<=\?pic=).*/;
 let local_search_reg1_pic = local_search_a.match(local_search_reg2);
 
 
+// 分离cls区别歌单
+let local_search_reg3 = /(?<=\?cls=)\d*/;
+let local_search_reg3_cls = parseInt(local_search_a.match(local_search_reg3));
+let local_search_reg4 = /(?<=\?iddx=)\d*/;
+let local_search_reg4_cls = parseInt(local_search_a.match(local_search_reg4));
+
 $("#play-mid-btn").style.background = "url(" + local_search_reg1_pic + ") no-repeat center";
 $(".song-play-bg").style.background = "url(" + local_search_reg1_pic + ") no-repeat center";
 // render(song_play_turn_url).then(data=>){
 $("#play-mid-btn").style.backgroundSize = "100%";
 
-render("http://localhost:3000/personalized").then(data => {
-    let input = "";
-    data.result.splice(0, 6).forEach(value =>{
-        addPage('http://localhost:3000/playlist/detail?id=' + value.id,"privileges");
+if(local_search_reg3_cls == 10002){
+    render("http://localhost:3000/personalized").then(data => {
+        let input = "";
+        data.result.splice(0, 6).forEach(value =>{
+            if(local_search_reg4_cls == value.id){
+                addPage('http://localhost:3000/playlist/detail?id=' + value.id,"privileges");
+            }
+        })
     })
-})
+}
+if(local_search_reg3_cls == 10000){
+    addPage('http://localhost:3000/personalized/newsong',"result");
+}
+if(local_search_reg3_cls ==10001){
+    addPage('http://localhost:3000/top/list?idx=1',"privileges");
+}
 
-addPage('http://localhost:3000/top/list?idx=1',"privileges");
-addPage('http://localhost:3000/personalized/newsong',"result");
-// 
 
 // 切歌功能实现
 function addPage(url,area) {
