@@ -13,9 +13,10 @@ function render(url) {
     }).then(response => {
         if (response.status == 200) {
             return response.json()
-        } else {
-            alert("err:" + response.status)
-        }
+        } 
+        // else {
+        //     alert("err:" + response.status)
+        // }
     })
 }
 // 页面渲染主体

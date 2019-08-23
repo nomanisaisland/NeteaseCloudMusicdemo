@@ -1,10 +1,14 @@
 // 每日推荐歌单页面
+
+
 let personalized = "http://localhost:3000/personalized";
 
 render(personalized).then(data => {
     let input = "";
     data.result.splice(0, 6).forEach(value =>{
+        let page_num;
         playCount(value);  //index.js   line1
+
         input +=    
             `
         <li>
@@ -187,9 +191,6 @@ function removeSearHis(){
         }
     }
 }
-
-
-
 
 
 

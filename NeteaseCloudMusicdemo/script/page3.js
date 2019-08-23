@@ -40,10 +40,10 @@ render(detail_detail_data_url + detail_data_url).then(data => {
 
 
     let song_list_input = "";
-    data.playlist.tracks.forEach(function (value, index, arr) {
+    data.playlist.tracks.forEach((value, index)=> {
 
-        if (arr[index].al.name.length > 1) {
-            arr[index].al.name = "-&nbsp" + arr[index].al.name;
+        if (value.al.name.length > 1) {
+            value.al.name = "-&nbsp" + value.al.name;
         }
 
         song_list_input +=
@@ -76,119 +76,5 @@ render(detail_detail_data_url + detail_data_url).then(data => {
     })
     $("#song-list-recom").innerHTML = song_list_input;
 })
-let playlist_detail_data_url = "http://localhost:3000/comment/playlist?id=";
-render(playlist_detail_data_url + detail_data_url).then(data => {
-
-    let hotComments_input = "";
-    data.hotComments.forEach(value => {
-        let vip_icon;
-        if(value.user.vipType == 11){
-            vip_icon = "vip_icon";
-        }
-        hotComments_input +=
-            `
-            <div class="ofplfooter-content">
-            <!-- 左边头像 -->
-            <div class="ofplfooter-content-head">
-                <img src="${value.user.avatarUrl}" alt="头像">
-            </div>
-            <!-- 评论主体 -->
-            <div class="ofplfooter-content-body">
-                <ul class="ofplfooter-content-body-list">
-                    <li>
-                        <p>
-                            <span>${value.user.nickname}</span>
-                            <i class="${vip_icon}"></i>
-                        </p>
-                        <p>
-                            <span>
-                                ${value.likedCount}
-                            </span>
-                            <i class="fa fa-thumbs-o-up"></i>
-                        </p>
-                    </li>
-                    <li>
-                        <span>2018年9月15日 </span>
-                    </li>
-                    <li>
-                        <p>
-                            
-                            <span>
-                                ${value.content}
-                            </span>
-                        </p>
-                        
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-        `
-        
-    })
-    $(".ofplfooter-hot-content").innerHTML += hotComments_input;
-
-
-    let newComments_input = "";
-    data.comments.forEach(value => {
-        let vip_icon;
-        let replied;
-        let replied_content;
-        if(value.user.vipType == 11){
-            vip_icon = "vip_icon";
-        }
-
-        if(value.beReplied.length > 0){
-            replied = `<span class="be-replied">回复<a href="#">@${value.beReplied[0].user.nickname}:</a></span>`;
-            replied_content = `<div><span> @${value.beReplied[0].user.nickname}:</span><span>${value.beReplied[0].content}</span> </div>`          
-        }else{
-            replied = ``;
-            replied_content = ``;
-        }
-
-        hotComments_input +=
-            `
-            <div class="ofplfooter-content">
-            <!-- 左边头像 -->
-            <div class="ofplfooter-content-head">
-                <img src="${value.user.avatarUrl}" alt="头像">
-            </div>
-            <!-- 评论主体 -->
-            <div class="ofplfooter-content-body">
-                <ul class="ofplfooter-content-body-list">
-                    <li>
-                        <p>
-                            <span>${value.user.nickname}</span>
-                            <i class="vip_icon"></i>
-                        </p>
-                        <p>
-                            <span>
-                                ${value.likedCount}
-                            </span>
-                            <i class="fa fa-thumbs-o-up"></i>
-                        </p>
-                    </li>
-                    <li>
-                        <span>2018年9月15日 </span>
-                    </li>
-                    <li>
-                        <p>
-                            
-                            ${replied}
-                            <span>
-                                ${value.content}
-                            </span>
-                        </p>
-                        ${replied_content}
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-        `
-        
-    })
-    $(".ofplfooter-new-content").innerHTML += hotComments_input;
-
-    
-})
+let data_url = "http://localhost:3000/comment/playlist?id="+detail_data_url;
+addCommoent(data_url);
