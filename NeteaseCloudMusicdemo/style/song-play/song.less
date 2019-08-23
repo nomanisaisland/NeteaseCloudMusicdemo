@@ -4,7 +4,13 @@ body {
     color: white;
 
 }
-
+.song-name-title{
+    position: fixed;
+    top: 80 * @dw;
+    width: 100%;
+    text-align: center;
+    font-size: 0.15rem;
+}
 .song-play-bg {
     position: fixed;
     top: 0;
@@ -47,9 +53,24 @@ body {
 
 .song-play-top {
     position: relative;
+    overflow: hidden;
+    .top-hook {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-25%);
+        content: "";
+        display: block;
+        width: 96 * @dw;
+        height: 137 * @dw;
+        background: url(../../img/needle-ip6.png);
+        background-size: 100%;
+        z-index: 999;
+    }
 
     #play-top-box {
+        position: relative;
         width: 100%;
+        overflow: hidden;
 
         .play-top-title {
 
@@ -57,7 +78,7 @@ body {
                 display: inline-block;
                 width: 15 * @dw;
                 height: 15 * @dw;
-                background: url(../../image/favicon.ico);
+                background: url(../../img/ico_title.png);
                 background-size: 100%;
                 vertical-align: middle;
             }
@@ -70,7 +91,7 @@ body {
 
         .song-play-compact {
             position: relative;
-            margin: 50 * @dw auto 20 * @dw;
+            margin: 50 * @dw auto 20 * @dw auto;
             width: 266 * @dw;
             height: 266 * @dw;
 
@@ -78,7 +99,7 @@ body {
                 position: relative;
                 width: 100%;
                 height: 100%;
-                background: url(../../image/songplay/disc.png);
+                background: url(../../img/disc-ip6.png);
                 background-size: 100%;
                 background-repeat: no-repeat;
 
@@ -112,14 +133,13 @@ body {
         .song-player-lyric {
             position: relative;
             margin: auto;
-            width: 305 * @dw;
-            height: 120 * @dw;
+            width: 100%;
+            height: 130 * @dw;
             overflow: hidden;
             color: white;
 
 
             .song-player-lyric-box {
-                margin-top: 50 * @dw;
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
@@ -129,14 +149,16 @@ body {
                 transition: all 1s;
 
                 .song-player-lyric-title {
-                    height: 50 * @dw;
+                    margin-top: 1rem;
+                    height: 40 * @dw;
+                    font-size: 13 * @dw;
 
                     span:nth-child(1) {
-                        font-size: 17 * @dw;
+                        font-size: 13 * @dw;
                     }
 
                     span:nth-child(3) {
-                        font-size: 16 * @dw;
+                        font-size: 12 * @dw;
                         font-weight: bold;
                         color: hsla(0, 0%, 100%, .6);
                     }
@@ -149,45 +171,26 @@ body {
 
                     p {
                         width: 100%;
-                        height: 50 * @dw;
+                        height: 30 * @dw;
                         white-space: wrap;
-                        font-size: 14 * @dw;
+                        font-size: 12 * @dw;
                     }
                 }
             }
         }
-
-        .song-player-ctpelyric {
-            margin-top: 80 * @dw;
-            position: relative;
-            color: hsla(0, 0%, 100%, .6);
-            text-align: center;
-
-            p {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-            }
+        .player-turn-control{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%,-100%);
         }
     }
 
 }
 
-.song-play-top::before {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-25%);
-    content: "";
-    display: block;
-    width: 96 * @dw;
-    height: 137 * @dw;
-    background: url(../../image/songplay/needle.png);
-    background-size: 100%;
-    z-index: 999;
-}
-
 .song-play-like {
     position: relative;
+    margin-top: 30 * @dw;
 
     h4 {
         font-size: 14 * @dw;
@@ -277,3 +280,102 @@ body {
         }
     }
 }
+
+.font-color {
+    color: white;
+}
+
+.good-color {
+    width: 10px;
+    color: #999;
+}
+
+
+.player-control {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    // bottom: 0;
+    width: 100%;
+    transform: translate(-50%,-50%);
+    background: transparent;
+
+    div:nth-child(1) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+        font-size: 8px;
+
+        
+        .current-time{
+            font-size: 8px;
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 80%;
+            border-radius: 10px;
+            margin: 0 10px; 
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            height: 1px;
+            border-radius: 10px;
+            /*将轨道设为圆角的*/
+            box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112;
+            /*轨道内置阴影效果*/
+            opacity: 0.5;
+        }
+
+        input[type=range]:focus {
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 5px;
+            width: 20px;
+            margin-top: -3px;
+            /*使滑块超出轨道部分的偏移量相等*/
+            background: #000;
+            border-radius: 50%;
+            /*外观设置为圆形*/
+            border: solid 0.125em rgba(205, 224, 230, 0.5);
+            /*设置边框*/
+            box-shadow: 0 .125em .125em #3b4547;
+            /*添加底部阴影*/
+        }
+        
+    }
+
+    div:nth-child(2) {
+        text-align: center;
+        margin: 5px 0;
+
+        .song-player-ctpelyric {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            color: hsla(0, 0%, 100%, .6);
+            p {
+            }
+        }
+        p {
+
+            display: inline-block;
+
+            span {
+                margin: 0 20px 0 20px;
+            }
+            div{
+                margin: 0 20px 0 20px;  
+            }
+
+        }
+    }
+}
+
