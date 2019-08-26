@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>register</title>
+    <link rel="stylesheet" href="../style/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/less" href="../style/register/register-style.less">
+    <script src="../script/common/less.min.js"></script>
+</head>
+
+<body>
+    <video src="../img/mv_bg.mp4" autoplay></video>
+    <div class="register-page" >
+        <header class="register-page-logo">
+            <img src="../img/ico_title.png" alt="">
+        </header>
+        <div class="register-page-content">
+            <div class="register-content-mobile">
+                <p class="tab-pad">
+                    手机号登录
+                </p>
+            </div>
+            <div class="register-content-back">
+                <p class="tab-pad">
+                    算了，我还是回去叭
+                </p>
+            </div>
+            <div class="register-content-method">
+                <p class="content-method tab-pad">
+                    <span>
+                        <i class="fa fa-mobile" id="m_verifiycode"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-qq"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-weibo"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-spotify"></i>
+                    </span>
+                </p>
+                <footer class="register-content-focus tab-pad">
+                    <input type="checkbox" id="user_agmet">
+                    <p>同意<a href="#">&laquo; 用户协议 &#187;</a>和<a href="#">&laquo;隐私手册 &#187;</a></p>
+                </footer>
+            </div>
+        </div>
+
+    </div>
+    <!-- 手机号输入 -->
+    <div class="mobile-login" id="mobile_login_pwd" style="display: none">
+        <header>
+            <i class="fa fa-arrow-left" id="back_index"></i>
+            <span>手机号密码登录</span>
+        </header>
+        <div class="mobile-login-tip">
+            <p>未注册手机号登录后将自动创建账号</p>
+        </div>
+        <div class="mobile-login-content">
+            <span>+86</span>
+            <input type="number" name="phone_num" oninput="if(value.length>11)value=value.slice(0,11)" id="phone">
+            <i class="fa fa-close " id="clear_btn"></i>
+        </div>
+        <div class="err-tip">
+            <p>手机号格式错误</p>
+        </div>
+        <footer class="mobile-login-footer" id="mobile_login_verfiy">
+            <p>
+                下一步
+            </p>
+        </footer>
+    </div>
+    <!-- 手机号输入验证码 -->
+    <div class="mobile-login" id="mobile_login_ver" style="display: none">
+        <header>
+            <i class="fa fa-arrow-left"></i>
+            <span>手机号登录</span>
+        </header>
+        <div class="mobile-login-tip">
+            <p>未注册手机号登录后将自动创建账号</p>
+        </div>
+        <div class="mobile-login-content">
+            <span>+86</span>
+            <input type="number" name="phone_num" oninput="if(value.length>11)value=value.slice(0,11)" id="phone">
+            <i class="fa fa-close " id="clear_btn"></i>
+        </div>
+        <div class="err-tip">
+            <p>手机号格式错误</p>
+        </div>
+        <footer class="mobile-login-footer" id="mobile_login_footer">
+            <p>
+                下一步
+            </p>
+        </footer>
+    </div>
+    <!-- 手机验证码登录 -->
+    <div class="mobile-verify" id="mobile_verify" style="display: none">
+        <header>
+            <i class="fa fa-arrow-left"></i>
+            <span>手机号验证</span>
+        </header>
+        <div class="mobile-verify-tip">
+            <div>
+                <p>验证码已发送至</p>
+                <p>
+                    <span class="mobile-verify-phone"></span>
+                    <span class="time-countdown">60</span>
+                </p>
+            </div>
+            <div class="mobile-verification-code">
+                <input type="number" id="verification_content" >
+                <ul>
+                    <li name="v-num" id="num1"></li>
+                    <li name="v-num" id="num2"></li>
+                    <li name="v-num" id="num3"></li>
+                    <li name="v-num" id="num4"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 密码登录 -->
+    <div class="mobile-verify-pwd" style="display:none">
+        <header>
+            <i class="fa fa-arrow-left"></i>
+            <span>手机号登录</span>
+        </header>
+        <div class="verify-pwd-input">
+            <div class="pwd-input-content">
+                <input type="password" placeholder="请输入密码" id="user_pwd">
+                <span><a href="#">忘记密码?</a></span>
+            </div>
+        </div>
+        <footer id="user_login">
+            <p>登录</p>
+        </footer>
+    </div>
+</body>
+<script src="../script/common/common.js"></script>
+<script src="../script/register/register.js"></script>
+<script src="../script/register/register_data.js"></script>
+</html>

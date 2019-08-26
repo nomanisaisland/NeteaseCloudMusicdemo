@@ -1,0 +1,311 @@
+video {
+    position: fixed;
+    top: -75 * @dw;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 120%;
+    z-index: -999;
+}
+
+header {
+    i {
+        font-size: 15 * @dw;
+        vertical-align: middle;
+    }
+
+    span {
+        font-size: 18 * @dw;
+        vertical-align: middle;
+    }
+}
+
+.register-page {
+    // position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .register-page-logo {
+        margin: 50 * @dw auto;
+        width: 40 * @dw;
+        height: 40 * @dw;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .register-page-content {
+        width: 100%;
+        text-align: center;
+
+        .register-content-mobile {
+            width: 100%;
+
+            p {
+                margin: auto;
+                width: 80%;
+                background: white;
+                color: red;
+                border: 1px solid rgba(247, 39, 67, 0.5);
+                border-radius: 999px;
+
+
+            }
+        }
+
+        .register-content-back {
+            margin-top: 10 * @dw;
+            width: 100%;
+
+            p {
+                margin: auto;
+                width: 80%;
+                background: rgba(241, 104, 104, 1);
+                color: white;
+                border: 1px solid rgba(247, 39, 67, 0.5);
+                border-radius: 999px;
+            }
+        }
+
+        .register-content-method {
+            width: 100%;
+
+            .content-method {
+                width: 100%;
+
+                span {
+                    display: inline-block;
+                    margin: 0 10 * @dw;
+                    width: 20 * @dw;
+                    height: 20 * @dw;
+                    background: rgba(245, 6, 26, 0.5);
+                    border-radius: 999px;
+                    z-index: -1;
+
+                    i {
+                        display: inline-block;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 999;
+                        text-align: center;
+                        line-height: 20 * @dw;
+                        color: white;
+                    }
+                }
+            }
+
+            .register-content-focus {
+                width: 100%;
+
+                input[type=radio] {
+                    // display: inline-block;
+                }
+
+                p {
+                    display: inline-block;
+                    color: rgba(247, 39, 67, 0.5);
+
+                    a {
+                        color: rgba(245, 6, 26, 1)
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tab-pad {
+    padding: 8 * @dw 0;
+}
+
+// 手机号输入界面
+.mobile-login {
+    margin: 15 * @dw auto;
+    width: 95%;
+    color: white;
+
+    .mobile-login-tip {
+        margin-top: 15 * @dw;
+        width: 100%;
+
+        p {
+            font-size: 8 * @dw;
+            opacity: .6;
+        }
+    }
+
+    .mobile-login-content {
+        margin-top: 20 * @dw;
+        position: relative;
+        width: 100%;
+
+        span {
+            padding-right: 10px;
+            position: absolute;
+            bottom: 0;
+            transform: translateY(-50%);
+            color: white;
+            border-right: 1px solid white;
+        }
+
+        input {
+            padding: 8 * @dw 40 * @dw;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            font-size: 13 * @dw;
+            background: transparent;
+            color: white;
+        }
+
+        i {
+            position: absolute;
+            right: 5px;
+            bottom: 0;
+            transform: translateY(-50%);
+        }
+    }
+    .err-tip{
+        margin-top: 5 * @dw;
+        text-align: center;
+        opacity: 0;
+    }
+    .mobile-login-footer {
+        margin-top: 25 * @dw;
+        text-align: center;
+        background: red;
+        border-radius: 999px;
+        font-size: 10 * @dw;
+
+        p {
+            padding: 10 * @dw;
+            color: white;
+        }
+    }
+}
+
+// 短信验证界面
+.mobile-verify {
+    margin: 15 * @dw auto;
+    width: 95%;
+    color: white;
+
+    // 短信验证登录
+    .mobile-verify-tip {
+        margin-top: 15 * @dw;
+        width: 100%;
+
+        div{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            p:nth-child(1) {
+
+                font-size: 8 * @dw;
+                opacity: .7;
+            }
+    
+            p:nth-child(2) {           
+                font-size: 8 * @dw;
+            }
+        }
+
+        .mobile-verification-code {
+            margin: 25 * @dw auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 70%;
+
+
+            input[type=number] {
+                position: fixed;
+                top: -1000px;
+            }
+
+            ul {
+
+
+                li {
+                    display: inline-block;
+                    width: 35 * @dw;
+                    height: 20 * @dw;
+                    text-align: center;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+                }
+            }
+        }
+    }
+
+
+}
+
+//密码登录
+.mobile-verify-pwd {
+    margin: 15 * @dw auto;
+    width: 95%;
+    color: white;
+
+    header {
+        i {
+            font-size: 7 * @dw;
+            vertical-align: middle;
+        }
+    }
+
+    .verify-pwd-input {
+        width: 100%;
+
+        .pwd-input-content {
+            margin: 15 * @dw 0;
+            position: relative;
+            width: 100%;
+            color: white;
+
+            input[type=password] {
+                padding: 4 * @dw 0;
+                width: 100%;
+                font-size: 16 * @dw;
+                border: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+                background: transparent;
+                color: white;
+            }
+
+            span {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                transform: translateY(-50%);
+                font-size: 4 * @dw;
+                a{
+                    color: rgb(95, 95, 250);
+                }
+            }
+        }
+    }
+
+    footer {
+        margin-top: 30 * @dw;
+        width: 100%;
+        background: rgba(245, 6, 26, 1);
+        border-radius: 999px;
+        text-align: center;
+
+        p {
+            padding: 10 * @dw 0;
+            font-size: 8 * @dw;
+            color: wheat;
+        }
+    }
+}

@@ -1,4 +1,4 @@
-.download{
+.download {
     position: fixed;
     top: 0;
     left: 0;
@@ -6,45 +6,50 @@
     height: 124 * @dw;
     background: #d43c33;
     z-index: 999;
+
     // 下载栏
-    .download-box{
+    .download-box {
         margin: auto;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        // align-items: center;
         width: 90%;
         height: 84 * @dw;
         color: white;
+        //登录按钮左侧头像
 
-        div:nth-child(1){
+
+        .top-login {
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            i{
-                width: 20 * @dw;
-                height: 20 * @dw;
+            width: 100%;
 
-                img{
+            div {
+                width: 35 * @dw;
+                height: 35 * @dw;
+
+                img {
                     width: 100%;
                     height: 100%;
                 }
             }
 
-        }
-        div:nth-child(2){
-            width: 100 * @dw;
-            height: 36 * @dw;
-            text-align: center;
-            line-height: 36 * @dw;
-            background: #fff;
-            color: #d43c33;
-            border-radius: 18 * @dw;
+            p{
+                span {
+                    margin: 0 12 * @dw;
+                }
+                span:nth-child(2){
+                    font-size: 5 * @dw;
+                }
+            }
         }
     }
 }
-.box-big{
+
+.box-big {
     display: block;
     width: 100%;
     height: 124 * @dw;

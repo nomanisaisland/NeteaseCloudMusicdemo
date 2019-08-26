@@ -1,3 +1,5 @@
+
+$(".song-mian").style.height = document.documentElement.clientHeight * 0.9 + "px";
 //歌曲播放
 $(".song-play-compact-btn").addEventListener("click", song_play)
 
@@ -40,6 +42,7 @@ function compact_ratate() {
 
 // 歌词滚动
 function gettimer(target) {
+    // console.log(target)
     let top;
     let currentLine = 0;
     let current_time;
@@ -62,8 +65,8 @@ function gettimer(target) {
             if (current_time >= target[j] && current_time <= target[j+1]) {
                 currentLine = j;
                 top =-0.6 + (-0.3 * currentLine);
+                // console.log(top)
                 $(".song-player-lyric-box").style.top = top + "rem";
-    
                 $A("#song_lyric_content > p")[j].style.color = "red";
               
                 break;
@@ -109,7 +112,7 @@ function gettimer(target) {
         for (k=0, len=target.length; k<len; k++){
             $A("#song_lyric_content > p")[k].style.color = "white";
 
-            if (current_time < target[k+1] && current_time >= target[k]){  //加0.5是为了实现歌词歌曲同步
+            if (current_time < target[k+1] && current_time >= target[k]){
                 $A("#song_lyric_content > p")[k].style.color = "red";
                 currentLine =  k;
                 break;
