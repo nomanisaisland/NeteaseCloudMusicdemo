@@ -13,7 +13,7 @@
 
 <body>
     <video src="../img/mv_bg.mp4" autoplay></video>
-    <div class="register-page" >
+    <div class="register-page">
         <header class="register-page-logo">
             <img src="../img/ico_title.png" alt="">
         </header>
@@ -74,33 +74,11 @@
             </p>
         </footer>
     </div>
-    <!-- 手机号输入验证码 -->
-    <div class="mobile-login" id="mobile_login_ver" style="display: none">
-        <header>
-            <i class="fa fa-arrow-left"></i>
-            <span>手机号登录</span>
-        </header>
-        <div class="mobile-login-tip">
-            <p>未注册手机号登录后将自动创建账号</p>
-        </div>
-        <div class="mobile-login-content">
-            <span>+86</span>
-            <input type="number" name="phone_num" oninput="if(value.length>11)value=value.slice(0,11)" id="phone">
-            <i class="fa fa-close " id="clear_btn"></i>
-        </div>
-        <div class="err-tip">
-            <p>手机号格式错误</p>
-        </div>
-        <footer class="mobile-login-footer" id="mobile_login_footer">
-            <p>
-                下一步
-            </p>
-        </footer>
-    </div>
+
     <!-- 手机验证码登录 -->
     <div class="mobile-verify" id="mobile_verify" style="display: none">
         <header>
-            <i class="fa fa-arrow-left"></i>
+            <i class="fa fa-arrow-left" id="back_verphone"></i>
             <span>手机号验证</span>
         </header>
         <div class="mobile-verify-tip">
@@ -112,7 +90,7 @@
                 </p>
             </div>
             <div class="mobile-verification-code">
-                <input type="number" id="verification_content" >
+                <input type="number" id="verification_content">
                 <ul>
                     <li name="v-num" id="num1"></li>
                     <li name="v-num" id="num2"></li>
@@ -120,22 +98,46 @@
                     <li name="v-num" id="num4"></li>
                 </ul>
             </div>
+            <p class="code_err">验证码错误</p>
+             <a href="javascript:" id="turn_page_index">回到上一页</a>
         </div>
     </div>
     <!-- 密码登录 -->
     <div class="mobile-verify-pwd" style="display:none">
         <header>
-            <i class="fa fa-arrow-left"></i>
+            <i class="fa fa-arrow-left" id="back_phonenum"></i>
             <span>手机号登录</span>
         </header>
         <div class="verify-pwd-input">
             <div class="pwd-input-content">
                 <input type="password" placeholder="请输入密码" id="user_pwd">
-                <span><a href="#">忘记密码?</a></span>
+                <span id="forget_pwd">忘记密码?</span>
             </div>
         </div>
+        <p class="err-pwd">
+            密码错误
+        </p>
         <footer id="user_login">
-            <p>登录</p>
+            <a href="#" id="user_login_btn">
+                登录
+            </a>
+        </footer>
+    </div>
+    <!-- 新密码 -->
+    <div class="mobile-new-pwd" style="display:none">
+        <header>
+            <i class="fa fa-arrow-left" id="back_old_pwd"></i>
+            <span>手机号登录</span>
+        </header>
+        <div class="verify-pwd-input">
+            <div class="pwd-input-content">
+                <input type="password" placeholder="请输入新密码" id="user_new_pwd">
+            </div>
+        </div>
+        <footer id="user_register">
+            <a href="#" id="user_register_btn">
+                注册登录
+            </a>
         </footer>
     </div>
 </body>

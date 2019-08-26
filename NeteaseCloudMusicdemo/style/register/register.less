@@ -231,6 +231,7 @@ header {
             input[type=number] {
                 position: fixed;
                 top: -1000px;
+                // top: 100px;
             }
 
             ul {
@@ -244,6 +245,11 @@ header {
                     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
                 }
             }
+        }
+        p{
+            text-align: center;
+            font-size: 8 * @dw;
+            opacity: 0;
         }
     }
 
@@ -294,7 +300,11 @@ header {
             }
         }
     }
-
+    .err-pwd{
+        margin-top: 5 * @dw;
+        text-align: center;
+        opacity: 0;
+    }
     footer {
         margin-top: 30 * @dw;
         width: 100%;
@@ -302,8 +312,58 @@ header {
         border-radius: 999px;
         text-align: center;
 
-        p {
-            padding: 10 * @dw 0;
+        a {
+            display: inline-block;
+            padding: 15 * @dw 0;
+            font-size: 8 * @dw;
+            color: wheat;
+        }
+    }
+}
+
+
+.mobile-new-pwd{
+    margin: 15 * @dw auto;
+    width: 95%;
+    color: white;
+
+    header {
+        i {
+            font-size: 7 * @dw;
+            vertical-align: middle;
+        }
+    }
+
+    .verify-pwd-input {
+        width: 100%;
+
+        .pwd-input-content {
+            margin: 15 * @dw 0;
+            position: relative;
+            width: 100%;
+            color: white;
+
+            input[type=password] {
+                padding: 4 * @dw 0;
+                width: 100%;
+                font-size: 16 * @dw;
+                border: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+                background: transparent;
+                color: white;
+            }
+        }
+    }
+    footer {
+        margin-top: 30 * @dw;
+        width: 100%;
+        background: rgba(245, 6, 26, 1);
+        border-radius: 999px;
+        text-align: center;
+
+        a {
+            display: inline-block;
+            padding: 15 * @dw 0;
             font-size: 8 * @dw;
             color: wheat;
         }

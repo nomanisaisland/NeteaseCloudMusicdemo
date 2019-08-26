@@ -20,18 +20,18 @@ function UserLogin() {
         });
     };
     // 验证码验证功能
-    this.verifiyCodeNum = function (obj) {
-        obj.addEventListener("click", function () {
-            user_login.mobile_login.verifiycode_input();
-            $("#verification_content").oninput = function () {
-                
-                let codenum = $("#verification_content").value.match(/^\d{0,4}/);
-                codenum = codenum.toString();
-                // console.log(codenum);
-                user_login.mobile_login.mobile_verifiycode($("verification_content"), $("#num1"), $("#num2"), $("#num3"), $("#num4"), codenum);
-            }
-        })
-    }
+    // this.verifiyCodeNum = function (obj) {
+    //     obj.addEventListener("click", function () {
+    //         user_login.mobile_login.verifiycode_input();
+    //         $("#verification_content").oninput = function () {
+    //             if(value.length>4)value=value.slice(0,4)
+    //             let codenum = $("#verification_content").value.match(/^\d{0,4}/);
+    //             codenum = codenum.toString();
+    //             // console.log(codenum);
+    //             user_login.mobile_login.mobile_verifiycode($("verification_content"), $("#num1"), $("#num2"), $("#num3"), $("#num4"), codenum);
+    //         }
+    //     })
+    // }
     this.mobile_login = {
         // 密码登录功能
         mobile_pwd: function () {
@@ -40,7 +40,7 @@ function UserLogin() {
         // 验证码显示功能
         mobile_verifiycode: function (obj, obj1, obj2, obj3, obj4, codenum) {
             
-
+            // console.log(codenum)
             switch (codenum.length) {
                 case 1:
                     obj1.innerHTML = codenum;
@@ -128,17 +128,21 @@ function SpecialFn() {
 //函数执行
 // 后退功能
 user_login.mobileNumNtn($("#back_index"), $("#mobile_login_pwd"), $(".register-page"));
+user_login.mobileNumNtn($("#back_verphone"), $("#mobile_verify"), $(".mobile-verify-pwd"));
+user_login.mobileNumNtn($("#back_phonenum"), $(".mobile-verify-pwd"), $("#mobile_login_pwd"));
+user_login.mobileNumNtn($("#forget_pwd"), $(".mobile-verify-pwd"), $(".mobile-new-pwd"));
+
+
+
 
 // 手机密码登录事件
 user_login.mobileNumNtn($(".register-content-mobile"), $(".register-page"), $("#mobile_login_pwd"));
 // 手机号输入后的事件
-user_login.mobileNumNtn($("#mobile_login_verfiy"), $("#mobile_login_pwd"), $("#mobile-verify-pwd"));
 // 手机输入后验证码界面出现
-user_login.mobileNumNtn($("#mobile_login_footer"), $("#mobile_login_ver"), $("#mobile_verify"));
 //手机验证码登录事件
 user_login.mobileNumNtn($("#m_verifiycode"), $(".register-page"), $("#mobile_login_ver"));
 //点击清空
 user_login.mobileNumNtn($("#clear_btn"));
 
 // 验证码
-user_login.verifiyCodeNum($("#m_verifiycode"));
+// user_login.verifiyCodeNum($("#m_verifiycode"));
