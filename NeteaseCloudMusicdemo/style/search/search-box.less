@@ -16,7 +16,7 @@
             height: 30 * @dw;
 
 
-            i {
+            i:nth-child(1) {
                 position: absolute;
                 top: 23 * @dw;
                 left: 20 * @dw;
@@ -30,6 +30,11 @@
                 padding: 0 40 * @dw 0 40 * @dw;
                 // background: transparent;
                 background: #ebecec;
+            }
+            .search-del{
+                position: absolute;
+                top: 23 * @dw;
+                right: 20 * @dw;
             }
         }
 
@@ -68,26 +73,27 @@
             .history-list {
                 width: 100%;
 
-                li{
+                li {
                     height: 45 * @dw;
                     border-bottom: 1px solid rgba(0, 0, 0, .1);
                     line-height: 45 * @dw;
 
-                    i:nth-child(1){
+                    i:nth-child(1) {
                         display: inline-block;
                         width: 15 * @dw;
 
-                        span{
+                        span {
                             text-align: center;
                             vertical-align: middle;
                         }
                     }
 
-                    p{
+                    p {
                         display: inline-block;
 
                     }
-                    i:nth-child(3){
+
+                    i:nth-child(3) {
                         .floatPo(right);
                     }
                 }
@@ -95,65 +101,73 @@
         }
     }
 
-    
+
 }
 
 
-.search-key-song{
+.search-key-song {
     width: 100%;
     font-size: 17 * @dw;
 
-    h2{
-        margin: 10 * @dw 5 * @dw;
+    h2 {
+        padding: 10 * @dw 10 * @dw;
         font-size: 12 * @dw;
     }
-    .search-key-song{
-        margin: 10 * @dw 5 * @dw;        
+
+    .search-key-song {
+        padding: 10 * @dw 10 * @dw;
         width: 100%;
-        .search-song-list{
+
+        .search-song-list {
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: space-between; 
-            
-            div{
+            justify-content: space-between;
+
+            div {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-between;
-                .song-icon{
+
+                .song-icon {
                     width: 50 * @dw;
                     height: 50 * @dw;
                 }
-                p{
+
+                p {
                     margin-left: 10 * @dw;
                     display: inline-block;
                 }
             }
         }
     }
-    .search-abl{
-        margin: 10 * @dw 5 * @dw;
+
+    .search-abl {
+        padding: 10 * @dw 10 * @dw;
         width: 100%;
-        .search-abl-box{
+
+        .search-abl-box {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
 
             width: 100%;
 
-            .abl-box-in{
+            .abl-box-in {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-between;
-                img{
+
+                img {
                     width: 50 * @dw;
                     height: 50 * @dw;
                 }
-                div{
 
-                    p{
+                div {
+
+                    p {
                         display: block;
                         height: auto;
                     }
@@ -161,27 +175,35 @@
             }
         }
     }
-    .search-mv{
-        margin: 10 * @dw 5 * @dw;        
+
+    .search-mv {
+        padding: 10 * @dw 10 * @dw;
+
         width: 100%;
 
-        .search-mv-box{
+        .search-mv-box {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
 
-            .mv-box-in{
+            .mv-box-in {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                img{
+
+                img {
 
                     width: 89 * @dw;
                     height: 50 * @dw;
                 }
-                div{
+
+                div {
 
                     margin-left: 15 * @dw;
                     font-size: 17 * @dw;
 
-                    p{
+                    p {
                         line-height: 30 * @dw;
                     }
                 }

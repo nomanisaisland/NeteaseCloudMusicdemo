@@ -106,6 +106,7 @@
             <div>
                 <i class="fa fa-search"></i>
                 <input type="text" placeholder="搜索歌曲、歌手、专辑" id="serch_song_key">
+                <i class="fa fa-close search-del"></i>
             </div>
         </div>
 
@@ -125,16 +126,7 @@
             <h2>最佳匹配</h2>
             <!-- 歌手 -->
             <div class="search-key-song">
-                <div class="search-song-list">
-                    <div>
-                        <img class="song-icon" src="../img/109951163111191410.webp" alt="">
-                        <p>
-                            歌手：
-                            <span>周杰伦（jay chou）</span>
-                        </p>
-                    </div>
-                    <i></i>
-                </div>
+                
             </div>
             <!-- 专辑 -->
             <div class="search-abl">
@@ -149,7 +141,7 @@
                             <p>周杰伦</p>
                         </div>
                     </div>
-                    <i>  </i>
+                    <i> &gt; </i>
                 </div>
             </div>
             <div class="search-mv">
@@ -164,34 +156,12 @@
                             <p>Charlie Puth</p>
                         </div>
                     </div>
-                    <i>  </i>
+                    <i> &gt; </i>
                 </div>
             </div>
             <div>
-                <ul class="song-list-content">
-                    <a href="song-play.html?id=${value.id}?pic=${value.al.picUrl}?cls=10002?iddx=${detail_data_url}">
-                        <li>
-                            <div class="song-list-content-left first num">
-                            </div>
-                            <!-- 左边歌名部分 -->
-                            <div class="song-list-left hot-song-change">
-                                <p>${value.name}<span></span></p>
-                                <p>     
-                                    <!-- 下面图标 -->
-                                    <i></i>
-                                    <span>${value.ar[0].name}</span>
-                                    <span>${value.al.name}</span>
-                                    <!-- 歌手 -->
-            
-                                </p>
-                            </div>
-                            <!-- 右边播放部分 -->
-                            <div class="radio-box">
-                                <i class="radio-btn"></i>
-                            </div>
-            
-                        </li>
-                    </a>
+                <ul class="song-list-content" id="search_song_name">
+                    
                 </ul>
             </div>
         </div>
