@@ -242,23 +242,23 @@ $("#serch_song_key").addEventListener("input", function () {
         })
     })
     // 歌手
-    render("http://localhost:3000/search?keywords=" + key_value+"&type=100&limit=1").then(data => {
-        addHtml($(".search-key-song"), data.result.artists, function callback(link, value, index) {
-            return input =
-                `
-                <div class="search-song-list">
-                    <div>
-                        <img class="song-icon" src="../img/109951163111191410.webp" alt="">
-                        <p>
-                            歌手：
-                            <span>${value.name} ${value.alias}</span>
-                        </p>
-                    </div>
-                    <i>&gt;</i>
-                </div>
-                `
-        })
-    })
+    // render("http://localhost:3000/search?keywords=" + key_value+"&type=100&limit=1").then(data => {
+    //     addHtml($(".search-key-song"), data.result.artists, function callback(link, value, index) {
+    //         return input =
+    //             `
+    //             <div class="search-song-list">
+    //                 <div>
+    //                     <img class="song-icon" src="../img/109951163111191410.webp" alt="">
+    //                     <p>
+    //                         歌手：
+    //                         <span>${value.name} ${value.alias}</span>
+    //                     </p>
+    //                 </div>
+    //                 <i>&gt;</i>
+    //             </div>
+    //             `
+    //     })
+    // })
     // 专辑
     
 
